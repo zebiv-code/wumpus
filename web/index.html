@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunt the Wumpus — heyman.ai</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <div id="cave-wrap">
+            <h1 id="game-title">Hunt the Wumpus</h1>
+            <div id="msg-pane" class="hidden"></div>
+            <canvas id="cave-canvas"></canvas>
+            <div id="arrow-hud">
+                <span id="arrow-display"></span>
+                <button id="btn-shoot-hud">Shoot</button>
+                <button id="btn-rules">?</button>
+            </div>
+
+            <!-- Rules modal -->
+            <div id="rules-modal" class="hidden">
+                <div class="rules-content">
+                    <button class="rules-close">&times;</button>
+                    <h2>Hunt the Wumpus</h2>
+                    <p class="credit">By Gregory Yob, 1973</p>
+                    <h3>The Cave</h3>
+                    <p>The Wumpus lives in a cave of 20 rooms shaped like an icosahedron. Each room connects to 3 others.</p>
+                    <h3>Hazards</h3>
+                    <p><strong>Wumpus</strong> — Usually asleep. If you enter his room, he wakes and eats you. If you shoot and miss, he may move to your room.<br>
+                    <strong>Pits</strong> — Two rooms have bottomless pits. Fall in and you lose.<br>
+                    <strong>Bats</strong> — Two rooms have super bats that carry you to a random room.</p>
+                    <h3>Warnings</h3>
+                    <p>When one room away from a hazard:<br>
+                    Wumpus: "I smell a Wumpus!"<br>
+                    Pit: "I feel a draft!"<br>
+                    Bats: "Bats nearby!"</p>
+                    <h3>Actions</h3>
+                    <p><strong>Move</strong> — Click a blue adjacent room to move there.<br>
+                    <strong>Shoot</strong> — You have 5 crooked arrows. Click Shoot, then click rooms to set the arrow's path (1-5 rooms). If no tunnel exists, the arrow flies randomly. Hit the Wumpus to win. Hit yourself to lose. Run out of arrows and you lose.</p>
+                </div>
+            </div>
+        </div>
+        <div id="hud">
+            <div id="status"></div>
+            <div id="messages"></div>
+            <div id="controls">
+                <div id="room-buttons"></div>
+                <div id="action-buttons">
+                    <button id="btn-move" class="action active">Move</button>
+                    <button id="btn-shoot" class="action">Shoot</button>
+                </div>
+                <div id="arrow-controls" class="hidden">
+                    <label>Rooms for arrow (1-5): <input type="number" id="arrow-count" min="1" max="5" value="1"></label>
+                    <div id="arrow-path"></div>
+                    <button id="btn-fire">Fire!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
